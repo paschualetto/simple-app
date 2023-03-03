@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'terminal'
+        label 'maven'
     }
     tools {
         maven 'mvn-latest'
@@ -10,7 +10,6 @@ pipeline {
         stage('Build App') {
             steps {
                 sh 'mvn clean package'
-                sh 'sleep 600'
             }
         }
     }
