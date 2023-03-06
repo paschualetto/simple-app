@@ -4,7 +4,6 @@ pipeline {
     }
 
     tools {
-        jdk 'jdk11'
         maven 'mvn-latest'
     }
 
