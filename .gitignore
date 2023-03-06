@@ -1,5 +1,7 @@
-# Maven target folder
+# Compilation folders
 target/
+.vscode/
+
 # Compiled class file
 *.class
 

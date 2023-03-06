@@ -1,8 +1,10 @@
 pipeline {
     agent {
-        label 'maven'
+        label 'dind'
     }
+
     tools {
+        jdk 'jdk11'
         maven 'mvn-latest'
     }
 
@@ -10,6 +12,16 @@ pipeline {
         stage('Build App') {
             steps {
                 sh 'mvn clean package'
+            }
+        }
+        stage('Build Image') {
+            steps {
+                script {
+                    def pom = readMavenPom file: 'pom.xml'
+                    def imageName = "${pom.name}:${pom.version}"
+                    sh "docker image build -t ${imageName} ."
+                    sh 'docker image ls -a'
+                }
             }
         }
     }
