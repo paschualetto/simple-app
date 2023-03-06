@@ -5,6 +5,7 @@ pipeline {
 
     tools {
         maven 'mvn-latest'
+        docker 'docker-latest'
     }
 
     stages {
