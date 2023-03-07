@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        label 'dind'
+        label 'jdk11'
     }
 
     tools {
         maven 'mvn-latest'
-        docker 'docker-latest'
+        dockerTool 'docker-latest'
     }
 
     stages {
